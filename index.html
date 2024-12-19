@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vpn word net dicas e Informações</title>
+    <title>VPN WORD NET OFICIAL</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +13,13 @@
             flex-direction: column;
             align-items: center;
             background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
         }
 
         header {
@@ -21,13 +28,13 @@
             color: white;
             padding: 1em 0;
             text-align: center;
-            overflow: hidden; /* Oculta o texto que transborda */
+            overflow: hidden;
         }
 
         header h1 {
-            position: relative; /* Necessário para animação */
-            animation-duration: 1s; /* Duração da animação */
-            animation-fill-mode: forwards; /* Mantém o estado final da animação */
+            position: relative;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
         }
 
         @keyframes slideTitleIn {
@@ -64,6 +71,11 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
+        .dark-mode .topic {
+            background-color: #444;
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -89,20 +101,20 @@
             color: #4CAF50;
             font-size: 1.2em;
             margin-top: 20px;
-            transition: color 0.3s ease-in-out; /* Adiciona uma transição suave para a cor */
+            transition: color 0.3s ease-in-out;
         }
 
         .download-icon:hover {
-            color: #FF5733; /* Substitua pela cor desejada ao passar o mouse */
+            color: #FF5733;
         }
 
         .download-icon i {
             margin-right: 8px;
-            transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave para o ícone */
+            transition: transform 0.3s ease-in-out;
         }
 
         .download-icon:hover i {
-            transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+            transform: scale(1.2);
         }
 
         footer {
@@ -115,38 +127,27 @@
             margin-top: 20px;
         }
 
-        .icon-telegram1, .icon-telegram2, .icon-whatsapp {
+        .icon-android, .icon-apple {
             position: fixed;
-            width: 32px; /* Ajuste o tamanho conforme necessário */
-            height: 32px; /* Ajuste o tamanho conforme necessário */
-            fill: #0088cc; /* Cor padrão dos ícones do Telegram */
+            width: 32px;
+            height: 32px;
             left: 10px;
-            transition: transform 0.3s; /* Adiciona uma transição suave para a transformação */
+            transition: transform 0.3s, fill 0.3s;
         }
 
-        .icon-telegram1 {
-            bottom: 150px; /* Ajuste a posição conforme necessário */
+        .icon-apple {
+            bottom: 250px;
+            fill: #000000;
         }
 
-        .icon-telegram2 {
-            bottom: 100px; /* Ajuste a posição conforme necessário */
+        .icon-android {
+            bottom: 200px;
+            fill: #A4C639;
         }
 
-        .icon-whatsapp {
-            fill: #25D366; /* Cor verde padrão do WhatsApp */
-            bottom: 50px; /* Ajuste a posição conforme necessário */
-        }
-
-        .icon-telegram1:hover, .icon-telegram2:hover, .icon-whatsapp:hover {
-            transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
-        }
-
-        .icon-telegram1:hover, .icon-telegram2:hover {
-            fill: #005f8c; /* Cor do ícone do Telegram ao passar o mouse */
-        }
-
-        .icon-whatsapp:hover {
-            fill: #128C7E; /* Cor do WhatsApp ao passar o mouse */
+        .icon-apple:hover, .icon-android:hover {
+            transform: rotate(20deg);
+            fill: #FF5733;
         }
 
         /* Estilos para o alerta */
@@ -168,9 +169,9 @@
             font-family: Arial, sans-serif;
             font-size: 14px;
             line-height: 1.4;
-            opacity: 0; /* Inicialmente invisível */
-            transition: opacity 0.5s ease; /* Transição suave */
-            animation: pulse 2s infinite; /* Animação de borda */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: pulse 2s infinite;
         }
 
         /* Animação de pulso */
@@ -210,15 +211,94 @@
         .custom-alert p {
             margin: 0 0 10px;
         }
-    </style>
+
+        .toggle-dark-mode {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #4CAF50;
+            transition: color 0.3s;
+        }
+
+        .toggle-dark-mode:hover {
+            color: #FF5733;
+        }
+
+.dark-mode .custom-alert {
+    background-color: #444;
+    border: 1px solid #666;
+    color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.moon-icon {
+    fill: #000000; /* Cor padrão do ícone */
+    transition: fill 0.3s; /* Transição suave para a cor */
+}
+
+.moon-icon:hover {
+    fill: #00fff6; /* Cor ao passar o mouse */
+}
+
+/* Caso você queira alterar a cor no modo escuro */
+body.dark-mode .moon-icon {
+    fill: #ffffff; /* Cor do ícone no modo escuro */
+}
+  </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>Bem-vindo ao Nosso App</h1>
     </header>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+</svg>
+    </button>
     <main>
-        <section id="topics">
+              <section id="topics">
+            <div class="topic">
+                <h2>RESUMO</h2>
+                <p>Você nunca usou ou já usar internet via aplicativo?<br><br>
+
+1: Você não precisa de internet.<br><br>
+
+2: Dependendo de qual operadora você esta usando pode pegar com plano ou sem plano ativo e também vai depende de cada região..<br><br>
+
+3: Por último nosso aplicativo.               
+                  
+Resumo, você precisar ter um chip com qualquer quer plano ativo ou não vai depende muito da região e operadora “veja logo abaixo os plano que você precisa ou não”.<br><br>
+ 
+🟣vivo sem cadastrar chip<br>                 
+🟣vivo propaganda<br>
+🟣vivo controle<br>
+🟣vivo pré-ativo<br>
+🟣vivo easy premium<br><br>
+
+🔵tim plano<br>
+🔵tim crédito válido<br>
+🔵tim sem nada ativo<br>
+🔵tim apenas cadastrado<br>
+🔵tim sem cadastrar chip<br><br>
+
+🔴claro diária<br>
+🔴claro planos ativo<br><br>
+                  
+🟣 Operadora vivo, recomendo é mais usada para usar internet ilimitada via aplicativo, aqui em nosso site você encontra um vídeo, dicas, “etc”.<br><br>
+
+🔵 Operador Tim, alguns DDD você nem precisar ter chip cadastrado, não precisa ter plano, etc.<br><br>
+
+🔴 Operadora claro, umas da operadora ótima rápida, mais para usar internet ilimitada via aplicativo é horrível, “minha opinião não recomendo”. <br><br>
+
+— sabendo tudo isso os tópicos desse site abaixo e complemento experiencia para usar internet ilimitada.
+                </a>
+            </div>
             <div class="topic">
                 <h2>oque é internet ilimitada via vpn?</h2>
                 <p>
@@ -250,34 +330,34 @@
 
 5: meu trabalho é manter desbloqueio atualizado e servidor ativo<br><br>
 
-6: recomendo entrar em nosso grupo oficial Telegram @VPNWORDNET, tudo em primeira mão, atualização, preços, se vai entrar em manutenção, novidades, etc.<br><br>
+6: recomendo entrar em nosso grupo oficial Telegram @vpnwordnet, tudo em primeira mão, atualização, preços, se vai entrar em manutenção, novidades, etc.<br><br>
 
-7: recomendo entrar em nosso grupo oficial Telegram de aplicativo, dicas, tutorial, “etc” @VPNWORDNETAPP lá você tem tudo de dicas em primeira não.<br><br>
+7: recomendo entrar em nosso grupo oficial Telegram de aplicativo, dicas, tutorial, “etc” @vpnwordnetapp lá você tem tudo de dicas em primeira mão.<br><br>
 
 8: As operadoras que funciona em nosso aplicativo são TIM VIVO CLARO.<br><br>
 
-9: a velocidade conexão não depende só do servidor, depende muito do sinal, tempo etc da sua operadora.<br><br>
+9: a velocidade conexão não depende só do servidor, depende muito do sinal, tempo etc.<br><br>
 
-10: Falarei os plano abaixo de cada operado para você esta conectando e se estiver sorte pode ser que não precisa de nada plano ativo.<br><br>
+10: Falarei os plano abaixo de cada operado para você esta conectando e se estiver sorte pode ser que não precisa de nada de plano ativo.<br><br>
 
-🔴claro: plano ativo<br>
-🔴claro: diária ativo<br>
-🔴claro: sem nada ativo depende da região e persistências de dicas etc<br><br>
+🟣vivo sem cadastrar chip<br>                 
+🟣vivo propaganda<br>
+🟣vivo controle<br>
+🟣vivo pré-ativo<br>
+🟣vivo easy premium<br><br>
 
-🟣vivo: controle<br>
-🟣vivo: easy premium<br>
-🟣vivo: pre turbo ativo<br>
-🟣vivo: diária Waze bugada<br><br>
+🔵tim plano<br>
+🔵tim crédito válido<br>
+🔵tim sem nada ativo<br>
+🔵tim apenas cadastrado<br>
+🔵tim sem cadastrar chip<br><br>
 
-🔵Tim: plano<br>
-🔵Tim: saldo valido<br>
-🔵Tim: expirado<br>
-🔵Tim: apenas chip cadastrado<br>
-🔵Tim: sem precisar cadastrar chip<br><br>
+🔴claro diária<br>
+🔴claro planos ativo<br><br>
 
-💬de todas que citei mais recomendada é operadora vivo! Se sua Tim pegar sem precisar cadastra chip ou apenas cadastrado melhor ainda!<br><br>
+💬de todas que foi citada mais recomendada é operadora vivo! Se sua Tim pegar sem precisar cadastra chip ou apenas cadastrado melhor ainda!<br><br>
 
-✅Sabendo disso tudo você já está pronto para usar nossa internet ilimitada, a melhor net gambiarra do planeta terra de alta qu
+✅Sabendo disso tudo você já está pronto para usar nossa internet ilimitada, a melhor net gambiarra do planeta terra de alta qualidade tecnologia de ponta a ponta
                 </a>
             </div>
             <div class="topic">
@@ -530,7 +610,7 @@ Seja feliz!
                     3: Abra app WORD NET PROXY, marque a caixinha sem root e clique em iniciar, vai aparecer os números de IP. Pegue o último. Se não funcionar, teste o outro número de IP.<br><br>
                     4: Veja parte 2
                 </p>
-                <a href="https://download1326.mediafire.com/f6gyl14tf2ggjENWpmYEyIEqFp7clrIyHM7-eQZ92uOGBQPc4NTg8RY6uHmNtZfREP5XUc11cfSy6BV7tlViEh66PGOkFQn1e0BPXYi21BLkHOPEOEf9s7REP3TrH86osP1YjDEHyjJHvXKUfWHIXYJE35cAI5WZQGqKRwIMs8BwdLe8/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
+                <a href="https://www.mediafire.com/file/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk/file" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar aplicativo vpn word net
                 </a>
                 <a href="https://www.mediafire.com/file/8xd2hqa9duty6be/APLICATIVO_COMPARTILHA_NET_CELULAR_TV.apk/file" download class="download-icon">
@@ -546,7 +626,7 @@ Seja feliz!
 1: abra seu Wi-Fi em seu "pc, notebook" pesquisar por seu Wi-Fi nome que você criou em seu celular e colocar senha que você criou.
 2: em seu "pc, notebook" vá em configuração. procure rede e internet, procure por proxy, agora procure abar "usar um servidor proxy agora coloque o servidor e porta do nosso WORDNET PROXY de um salva e seja feliz!
                 </p>
-                <a href="https://download1326.mediafire.com/f6gyl14tf2ggjENWpmYEyIEqFp7clrIyHM7-eQZ92uOGBQPc4NTg8RY6uHmNtZfREP5XUc11cfSy6BV7tlViEh66PGOkFQn1e0BPXYi21BLkHOPEOEf9s7REP3TrH86osP1YjDEHyjJHvXKUfWHIXYJE35cAI5WZQGqKRwIMs8BwdLe8/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
+                <a href="https://www.mediafire.com/file/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk/file" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar aplicativo vpn word net
                 </a>
                 <a href="https://www.mediafire.com/file/8xd2hqa9duty6be/APLICATIVO_COMPARTILHA_NET_CELULAR_TV.apk/file" download class="download-icon">
@@ -562,16 +642,16 @@ Seja feliz!
 Esse método gosto de mais uso bastante.<br><br>'
 Bem fácil de fazer, veja o vídeo e seja feliz!
                 </p>
-                <a href="https://download1326.mediafire.com/f6gyl14tf2ggjENWpmYEyIEqFp7clrIyHM7-eQZ92uOGBQPc4NTg8RY6uHmNtZfREP5XUc11cfSy6BV7tlViEh66PGOkFQn1e0BPXYi21BLkHOPEOEf9s7REP3TrH86osP1YjDEHyjJHvXKUfWHIXYJE35cAI5WZQGqKRwIMs8BwdLe8/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
+                <a href="https://www.mediafire.com/file/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar aplicativo vpn word net
                 </a>
-                <a href="https://download2293.mediafire.com/9fr4tew8toigGJ8zg-0VGT4SwQInmQe7mrubXkJ1C5Rk3VliSjhVnOLrALvOC2T4Ckc-hoJqwyIcfijrsrcHHVc5Pk6ZhgkA_0E-O92R4JAThAfR4u0vwJBsxKDQeAShI5Lp0WG2PKapbcUN_DyDuZ8WwcziUGZpk1WIeA_7oLYu6E3d/09efrw5kvavk7yd/PDNET%2B+CELULAR.apk"download class="download-icon">
+                <a href="https://www.mediafire.com/file/09efrw5kvavk7yd/PDNET%2B+CELULAR.apk"download class="download-icon">
                     <i class="fa fa-download"></i> Baixar Aplicativo pdnet premium para celular
                 </a>
-                <a href="https://download2391.mediafire.com/6wqv56y2tvfgPnLaP2YF-pAUcELt3PBPus-B1NM6cM5nPMx2uca7P9s5Cmzdnfox1LOOvU2ZzyNR8HiUz5sFiXaHpwY-gbsWMBXyFQVqbYu2jiTqR5yPOgAH3OuHQADySdkhGah5CXdd-hxCflUxslIy4o7bpKtMR9wk3Gzvm1txcRQk/9ka84vgbas29gs7/PDNET+PARA+PC.exe" download class="download-icon">
+                <a href="https://www.mediafire.com/file/9ka84vgbas29gs7/PDNET+PARA+PC.exe" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar Aplicativo pdnet para pc notbook
                 </a>
-                <a href="http://pdanet.co/install/" download class="download-icon">
+                <a href="https://pdanet.co/install/" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar Aplicativo pdnet pc direto no site oficial
                 </a>
             </div>
@@ -587,18 +667,38 @@ Para fazer isso seu aparelho tem que ter opção de porta.<br><br>
 
 Veja vídeo e seja feliz.
                 </p>
-                <a href="https://download1326.mediafire.com/f6gyl14tf2ggjENWpmYEyIEqFp7clrIyHM7-eQZ92uOGBQPc4NTg8RY6uHmNtZfREP5XUc11cfSy6BV7tlViEh66PGOkFQn1e0BPXYi21BLkHOPEOEf9s7REP3TrH86osP1YjDEHyjJHvXKUfWHIXYJE35cAI5WZQGqKRwIMs8BwdLe8/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
+                <a href="https://www.mediafire.com/file/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar aplicativo vpn word net
                 </a>
-                <a href="https://download1478.mediafire.com/5u4jag23281gkdzv2V9uoNv6ooj6yvrt66EGRxVEncML7TGMbq3WpMpOWq16rwFlG9dUANXdyE-MckNpIofstsIHoyCtI2p-SUImW0ETR3xvnf3e1KlY0Rsg5TAd0dOTdf9fuyQbOaZTL3AshYk4egbgaXgxLDcSoImddI_s3Xurhjo/8xd2hqa9duty6be/APLICATIVO+COMPARTILHA+NET+CELULAR+TV.apk" download class="download-icon">
+                <a href="https://www.mediafire.com/file/8xd2hqa9duty6be/APLICATIVO+COMPARTILHA+NET+CELULAR+TV.apk" download class="download-icon">
                     <i class="fa fa-download"></i> Baixar Aplicativo wordnet proxy
                 </a>
             </div>
         </section>
     </main>
     <footer>
-         vpn word net™ todos direito reservado © 𝟮𝟬𝟭𝟵-𝟮𝟬𝟮𝟰 <br> programador technology-security
+         Copyright © 2019-2024 vpn word net. <br> Todos os direitos reservado
     </footer>
+
+    <a href="https://vpnwordnetoficial.github.io/loja/" target="_blank">
+        <svg class="icon-store" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z"/>
+</svg>
+    </a>
+
+    <a href="https://apps.apple.com/br/app/npv-tunnel/id1629465476" target="_blank">
+        <svg class="icon-apple" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
+  <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+  <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+</svg>
+    </a>
+
+    <a href="https://www.mediafire.com/file/q00fd4kukompcel/VPN+WORD+NET+v2ray+pro+2.apk/file" target="_blank">
+        <svg class="icon-android" 
+             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google-play" viewBox="0 0 16 16">
+  <path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/>
+</svg>
+    </a>
 
     <a href="https://t.me/vpnwordnet" target="_blank">
     <svg class="icon-telegram1" 
@@ -610,12 +710,15 @@ Veja vídeo e seja feliz.
 <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 512"><defs><linearGradient id="prefix__a" gradientUnits="userSpaceOnUse" x1="256" y1="3.84" x2="256" y2="512"><stop offset="0" stop-color="#2AABEE"/><stop offset="1" stop-color="#229ED9"/></linearGradient></defs><circle fill="url(#prefix__a)" cx="256" cy="256" r="256"/><path fill="#fff" d="M115.88 253.3c74.63-32.52 124.39-53.95 149.29-64.31 71.1-29.57 85.87-34.71 95.5-34.88 2.12-.03 6.85.49 9.92 2.98 2.59 2.1 3.3 4.94 3.64 6.93.34 2 .77 6.53.43 10.08-3.85 40.48-20.52 138.71-29 184.05-3.59 19.19-10.66 25.62-17.5 26.25-14.86 1.37-26.15-9.83-40.55-19.27-22.53-14.76-35.26-23.96-57.13-38.37-25.28-16.66-8.89-25.81 5.51-40.77 3.77-3.92 69.27-63.5 70.54-68.9.16-.68.31-3.2-1.19-4.53s-3.71-.87-5.3-.51c-2.26.51-38.25 24.3-107.98 71.37-10.22 7.02-19.48 10.43-27.77 10.26-9.14-.2-26.72-5.17-39.79-9.42-16.03-5.21-28.77-7.97-27.66-16.82.57-4.61 6.92-9.32 19.04-14.14z"/></svg>
         </a>
 
-    <a href="https://wa.me/message/GPIYPTNUMB55H1" target="_blank">
+    <a href="https://wa.me/message/PZDWERPHFUKUO1" target="_blank">
     <svg class="icon-whatsapp" 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2500 2500"><defs><style>.cls-1,.cls-2{fill-rule:evenodd;}.cls-1{fill:url(#linear-gradient);}.cls-2{fill:#fff;}</style><linearGradient id="linear-gradient" x1="2335.52" y1="6714.92" x2="2335.52" y2="-6385.98" gradientTransform="matrix(0.19, 0, 0, -0.19, 804.32, 1281.38)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#61fd7d"/><stop offset="1" stop-color="#2bb826"/></linearGradient></defs><title>whatsapp-business</title><path class="cls-1" d="M2499.8,1865.58c0,13.69-.42,43.37-1.24,66.3-2,56.11-6.46,128.51-13.19,161.5-10.11,49.57-25.37,96.36-45.26,135.31A481.8,481.8,0,0,1,2228,2440.54c-39.15,19.95-86.23,35.22-136.09,45.29-32.66,6.59-104.51,11-160.26,12.94-23,.82-52.65,1.23-66.28,1.23l-1231-.2c-13.69,0-43.37-.42-66.3-1.24-56.11-2-128.51-6.46-161.5-13.18-49.57-10.12-96.37-25.37-135.31-45.27A481.67,481.67,0,0,1,59.46,2228c-20-39.15-35.23-86.23-45.29-136.08-6.59-32.66-11-104.52-12.94-160.27C.41,1908.72,0,1879,0,1865.39l.2-1231c0-13.69.42-43.37,1.24-66.3,2-56.11,6.46-128.51,13.18-161.5C24.73,357.05,40,310.26,59.89,271.31A481.8,481.8,0,0,1,272,59.45c39.16-20,86.24-35.22,136.1-45.28,32.65-6.6,104.51-11,160.26-12.94C591.28.41,621,0,634.61,0l1231,.2c13.69,0,43.37.42,66.3,1.24,56.11,2,128.51,6.46,161.5,13.18C2143,24.73,2189.74,40,2228.69,59.89A481.67,481.67,0,0,1,2440.54,272c20,39.15,35.22,86.23,45.29,136.08,6.59,32.66,11,104.52,12.94,160.27.82,22.95,1.23,52.65,1.23,66.28Z" transform="translate(0)"/><path class="cls-2" d="M1912.32,591.45C1743.07,422.05,1518,328.72,1278.17,328.62c-494.13,0-896.28,402-896.48,896.14a894.32,894.32,0,0,0,119.66,448l-127.18,464.4,475.24-124.62a896.07,896.07,0,0,0,428.4,109.08h.37c494.07,0,896.27-402.05,896.47-896.18.09-239.46-93.07-464.63-262.33-634ZM1278.18,1970.3h-.31a744.11,744.11,0,0,1-379.24-103.83l-27.21-16.14-282,74,75.27-274.87L647,1621.23A742.88,742.88,0,0,1,533,1224.81C533.2,814.12,867.46,480,1278.47,480c199,.08,386.1,77.66,526.78,218.46s218.11,327.94,218,527c-.16,410.73-334.41,744.89-745.1,744.89Z" transform="translate(0)"/><path class="cls-2" d="M977.6,1658.86c6.31,3.8,19.27,3.8,49,3.77,126.15-.11,235.11-.49,312.62-.49,361.71,0,352.2-380.79,183.08-428.3,24.77-43.88,137.63-126.32,67.83-296.72-69-168.49-365.85-130.25-568.86-130.15-75.12,0-63.88,55.51-63.5,141.81.62,136.69.11,506.67,0,666.61C957.77,1647.81,967.56,1652.79,977.6,1658.86Zm156.51-139.55c34.15,0,114.71,0,183.77-.11,78.2-.12,147.83-36.7,146.09-114.55-1.27-73.33-50.06-97.4-117.78-104.12-64.5.62-138.27.62-212.08.62v218.16Zm0-365.44c136.05-1.87,188.54,5.48,262.82-13.12,51-29,73.34-136.42.29-172.92-50.75-25.35-200.71-16.68-263.11-14.08v200.12Z" transform="translate(0)"/></svg>
         </a>
 
     <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        } 
         function showCustomAlert(message) {
             // Criar o elemento de alerta
             const alertDiv = document.createElement('div');
@@ -643,13 +746,13 @@ Veja vídeo e seja feliz.
 
         window.addEventListener('load', function() {
             setTimeout(function() {
-                showCustomAlert("Se você está navegando através do nosso aplicativo, os downloads podem não estar disponíveis. Recomendo usar seu navegador para baixar os aplicativos que estão disponíveis aqui ou você pode ir em nosso grupo de dicas no Telegram.<br><br>⚠️ 𝘁𝗲𝗿𝗺𝗼𝘀<br>A partir de 𝟬𝟲/𝟬𝟳/𝟮𝟯 decidi não ter mais devolução! Só compre se souber como funciona esse mundo de Internet gambiarra, teste bem antes de comprar.<br><br>⚠️ 𝗼𝗯𝘀𝗲𝗿𝘃𝗲𝗺 meu trabalho é manter servidor ativo e desbloqueio das operadoras atualizado.<br><br>⭐️ 𝗩𝗣𝗡 𝗪𝗢𝗥𝗗 𝗡𝗘𝗧™ 𝘁𝗼𝗱𝗼𝘀 𝗱𝗶𝗿𝗲𝗶𝘁𝗼𝘀 𝗿𝗲𝘀𝗲𝗿𝘃𝗮𝗱𝗼𝘀 © 𝟮𝟬𝟭𝟵-𝟮𝟬𝟮𝟰™");
+                showCustomAlert("OLÁ, esse nosso site de dicas facilitando você ter uma experiência agradável com nosso aplicativo de internet ilimitada com servidor da mais alta potência e qualidade.<br><br> Se você está navegando dentro do nosso aplicativo internet ilimitada os downloads não podem estar disponíveis, recomendo usar seu navegador para baixar os aplicativos que estão disponíveis aqui.<br><br>⚠️ 𝘁𝗲𝗿𝗺𝗼𝘀<br>A partir de 𝟬𝟲/𝟬𝟳/𝟮𝟯 decidi não ter mais devolução! Só compre nossa internet ilimitada se souber como funciona esse mundo de Internet gambiarra, teste bem antes de comprar seu login.<br><br>⚠️ 𝗼𝗯𝘀𝗲𝗿𝘃𝗲𝗺 meu trabalho é manter servidor ativo e desbloqueio das operadoras atualizado.<br><br>⭐️ 𝘁𝗼𝗱𝗼𝘀 𝗱𝗶𝗿𝗲𝗶𝘁𝗼𝘀 𝗿𝗲𝘀𝗲𝗿𝘃𝗮𝗱𝗼𝘀 © 𝟮𝟬𝟭𝟵-𝟮𝟬𝟮𝟰™");
             }, 100);
         });
 
         // JavaScript para controlar a transição do título em loop
         const header = document.querySelector('header h1');
-        const titles = ["Bem-vindo ao site Word Net", "Dicas em vídeo", "Dicas em inscrita", "Seguem nas redes social", "Não esqueça nos compartilhar"];
+        const titles = ["Bem-vindo ao site word net", "net ilimitada, use abuse que não acabar!", "Dicas em vídeo", "Dicas em inscrita", "Seguem nas redes social", "Não esqueça de compartilhar"];
         let currentIndex = 0;
 
         function animateTitleOut() {
